@@ -10,7 +10,11 @@ function M.new(v)
         local split = vim.fn.split(filename, "/")
 
 
-        return split[#split]
+        local name = split[#split]
+        if name == "" or name == nil then
+            name = "[No Name]"
+        end
+        return name
     end
     return ret
 end

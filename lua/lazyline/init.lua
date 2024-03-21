@@ -300,7 +300,7 @@ function M.setup(opts)
         vim.api.nvim_set_option("laststatus", 3)
         -- vim.go.statusline = "%#Yeet1#yeet %=%*yeet%=yeet%*%= yeet%= yeet%= yeet"
         M.renderLine()
-        vim.fn.timer_start(1000, M.renderLine, { ["repeat"] = -1 })
+        vim.fn.timer_start(10000, M.renderLine, { ["repeat"] = -1 })
         -- vim.g.statusline = "%1*yeet %=%*yeet%= yeet%= yeet%= yeet%= yeet"
     end, 100)
 end
