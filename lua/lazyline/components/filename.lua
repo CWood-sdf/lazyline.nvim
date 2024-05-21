@@ -11,6 +11,8 @@ function M.new(v)
 
 
         local name = split[#split]
+        split = vim.fn.split(name, '\\')
+        name = split[#split]
         if name == "" or name == nil then
             name = "[No Name]"
         end
