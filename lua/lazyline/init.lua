@@ -156,7 +156,7 @@ function M.extractColors(fields, hls, default)
             local col = vim.api.nvim_get_hl(0, { name = v })
             print(vim.inspect(col))
             for _, scope in ipairs(fields) do
-                if col[scope] == nil then
+                if col[scope] == nil or ret[scope] ~= nil then
                     goto continue
                 end
                 ret[scope] = string.format("#%06x", col[scope])
