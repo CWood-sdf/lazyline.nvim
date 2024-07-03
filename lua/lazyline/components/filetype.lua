@@ -26,6 +26,13 @@ function M.new(v)
             if icon then
                 icon = icon .. " "
             end
+            local ll = require('lazyline')
+            local iconFg = ll.extractColors({ "fg" }, { iconhl }, "#ffffff").fg
+            local bg = ll.extractColors({ "bg" }, { "StatusLine" }, "#000000").bg
+            iconhl = ll.getHl({
+                fg = iconFg,
+                bg = bg,
+            })
         end
         if iconhl then
             icon = "%#" .. iconhl .. "#" .. icon .. "%*"
