@@ -1,5 +1,4 @@
 local M = {}
-
 function M.new(v)
     local actual = require('lazyline.components').mergeCapabilities(v, {
         events = { "BufEnter" },
@@ -9,6 +8,8 @@ function M.new(v)
             align = "left",
         },
     })
+    local ll = require('lazyline')
+    local bg = ll.extractColors({ "bg" }, { "StatusLine" }, "#000000").bg
     local ret = actual
     ret[1] = function()
         local ft = vim.bo.filetype or ""
@@ -26,9 +27,7 @@ function M.new(v)
             if icon then
                 icon = icon .. " "
             end
-            local ll = require('lazyline')
             local iconFg = ll.extractColors({ "fg" }, { iconhl }, "#ffffff").fg
-            local bg = ll.extractColors({ "bg" }, { "StatusLine" }, "#000000").bg
             iconhl = ll.getHl({
                 fg = iconFg,
                 bg = bg,
