@@ -154,6 +154,7 @@ function M.extractColors(fields, hls, default)
     for _, v in ipairs(hls) do
         if vim.fn.hlexists(v) then
             local col = vim.api.nvim_get_hl(0, { name = v })
+            -- print(vim.inspect(col))
             for _, scope in ipairs(fields) do
                 if col[scope] == nil or ret[scope] ~= nil then
                     goto continue
