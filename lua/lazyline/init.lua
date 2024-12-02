@@ -133,7 +133,9 @@ function M.renderLine()
         -- str = str .. " "
         ::continue::
     end
-    vim.go.statusline = str
+    pcall(function()
+        vim.go.statusline = str
+    end)
     timeSpent = timeSpent + vim.loop.hrtime() - startTime
 end
 
