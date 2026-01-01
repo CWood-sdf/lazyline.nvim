@@ -1,7 +1,7 @@
 local M = {}
 function M.new(v)
     local actual = require('lazyline.components').mergeCapabilities(v, {
-        events = { "BufEnter" },
+        events = { "BufEnter", "(1s)" },
         fmt = require('lazyline.components').pad,
     })
     local ret = actual
